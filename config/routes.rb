@@ -1,6 +1,6 @@
 App::Application.routes.draw do
   resources :rutinas
-
+resources :inicio
   #resources :dietas
 
   get "profile/index"
@@ -18,7 +18,7 @@ App::Application.routes.draw do
 	resources :dietas
 
 	
-	
+	#resources :index
 	
   resources :algos
 	
