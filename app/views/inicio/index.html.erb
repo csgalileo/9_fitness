@@ -1,6 +1,40 @@
-<h1>Fitness</h1>
+<div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a href="index.html">Home</a></li>
+          <li><%= link_to 'Sign Up', '/sign_up' %></li>
+          <li><%= link_to 'Login', '/login' %></li>
+         </ul>
+      </div>
+	  
+	  
+ <div id="site_content">
+      <div class="sidebar">
+        <!-- insert your sidebar items here -->
+        <h3>UNETE AHORA</h3>
+        <h4>Fitness Unico</h4>
+        <h5>Get Personal</h5>
+        <p>Unete y vuelvete cliente premium y goza de dietas personalizadas realizadas por profesionales<br /></p>
+        <p></p>
+        <h4>Unete Hoy y Gana</h4>
+        <h5>Junio 9 2011</h5>
+        <p>Obten un descuento del 30% al convertierte en miemdro premium.<br /></p>
+        <h3>Useful Links</h3>
+		<ul>
+          
+         <li><a href="http://www.portalfitness.com/">portalfitness.com</li>
+          <li><a href="http://es.fitness.com/">es.fitness.com</li>
+          <li><a href="http://guiafitness.com/">guiafitness.com</a></li>
+        </ul>
+</div>
+<div id="content">
+        <h1>Que es Personal Fitness?</h1>
+		<h4><p>La Lectura Es a La Mente Lo Que El Ejercicio Es Al Cuerpo</p></h4>
+		<p>Un entreno personal llevado a la perfeccion para ser utilizado en cualquier momento y por cualquier persona, No eres de ejercicio  entrena a base de una dieta personalizada. Fitrness en su maxima expresion.</p>
+		<%= image_tag "header-img.jpg", :alt => 'limon' %>
+		</div>
 
 
 <br />
 
-<%= link_to 'New Dieta', new_dieta_path %>
+

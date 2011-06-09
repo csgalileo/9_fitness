@@ -9,66 +9,67 @@ margin-bottom: 20px;
 background-color: #ffffaa;
 border-radius: 10px;
 }
+.a{
+ background-color: #ffffaa;
 
-h3{
-color: #33dd33;
-font-size:150%;
-font-style:normal;
-font-weight:normal;
 
 }
-h5{
-color: #dd3333;
-font-size:150%;
-font-style:normal;
-font-weight:normal;
 
-}
-h4{
-color: #777777;
-font-size:100%;
-font-style:normal;
-font-weight:normal;
-
-}
 </STYLE> 
-<p align = "right"><%= link_to 'Logout', '/logout'%>
+
+
+<div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li class="selected"><a href="">Perfil</a></li>
+          <li><%= link_to 'Editar Perfil', edit_usuario_path(@usuario) %></li>
+          <li><%= link_to 'Logout', '/logout' %></li>
+         </ul>
+      </div>
+
+<div id="site_content">
 
 <p id="notice"><%= notice %></p>
+<table>
+<td>
+<h1>
 
-
-<p>
   <b>Nombre:</b>
-  <%= @usuario.nombre %>
-</p>
+  <%= @usuario.nombre %><br>
 
-<p>
+
+
   <b>Nickname:</b>
-  <%= @usuario.nickname %>
-</p>
+  <%= @usuario.nickname %><br>
 
-<p>
+
+
   <b>Peso:</b>
-  <%= @usuario.peso %>
-</p>
+  <%= @usuario.peso %><br>
 
-<p>
+
+
   <b>Edad:</b>
-  <%= @usuario.edad %>
-</p>
+  <%= @usuario.edad %><br>
 
-<p>
+
+
   <b>Altura:</b>
-  <%= @usuario.altura %>
-</p>
+  <%= @usuario.altura %><br>
 
+</h1>
+</td>
+<td>
+<%= image_tag "header-img.jpg", :alt => 'limon' %>
+</td>
+</table>
 <table border = 0>
 <tr >
 <th width = "400">
 <h2> Posts</h2>
 </th>
 <th width = "400">
-<h2> dietas</h2>
+<h2> Dietas</h2>
 </th>
 </tr>
 <tr>
@@ -79,8 +80,8 @@ font-weight:normal;
 	<div class= "loca">
 	<table border = 0>
 		<tr>
-		<td><h3><%=link_to post.title, post %></h3></td>
-		<td><h4><%= time_ago_in_words post.created_at%> ago</h4> </td> 
+		<td class = "a" ><h3><%=link_to post.title, post %></h3></td>
+		<td class = "a" ><h4><%= time_ago_in_words post.created_at%> ago</h4> </td> 
 		</tr>
 	</table>	
 		<p><%= post.body %></p>
@@ -96,8 +97,8 @@ font-weight:normal;
 	<div class= "loca">
 	<table border = 0>
 		<tr>
-		<td><h3><%=dieta.nombre %></h3></td>
-		<td><h4><%= dieta.dia %></h4> </td> 
+		<td class = "a" ><h3><%=dieta.nombre %></h3></td>
+		<td class = "a" ><h4><%= dieta.dia %></h4> </td> 
 		</tr>
 	</table>	
 		<p><%= dieta.descripcion %></p>
@@ -112,13 +113,13 @@ font-weight:normal;
 		<!---------------------------------------- posts form ------------------------------------------------------------------------------> 
 <% form_for [@usuario, @usuario.posts.build] do |f| %>
 
-<p>
+<p><h5>
 
-	<%= f.label :titulo, "titulo Del post" %><br />
+	<%= f.label :titulo, "Titulo Del post" %><br />
 	<%= f.text_field :title %><br />
 	<%= f.label :body, "Nuevo Post" %><br />
 	<%= f.text_area :body %>
-</p>
+</h5></p>
 <p>
 	<%= f.submit "Agregar" %>
 </p>
@@ -130,7 +131,7 @@ font-weight:normal;
 <td>
 	<!---------------------------------------- dietas form ------------------------------------------------------------------------------> 
 <% form_for [@usuario, @usuario.dietas.build] do |f| %>
-
+<h5>
 <div class="field">
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre %>
@@ -155,19 +156,27 @@ font-weight:normal;
     <%= f.label :descripcion %><br />
     <%= f.text_area :descripcion %>
   </div>
+  </h5>
   <div class="actions">
     <%= f.submit %>
   </div>
+  
 <% end %>
 	<!---------------------------------------- fin ------------------------------------------------------------------------------> 
 	</td>
 	</tr>
-	</table>
+	<tr>
+	<td>
 	
+	<table>
 	<hr>
+	<th width = "400">
 	<h2> Rutinas</h2>
+	</th>
+	</table>
 <!---------------------------------------- rutinas ------------------------------------------------------------------------------>	
 	<% @usuario.rutinas.each do |rutina| %>
+	
 	<div class= "loca">
 	<table border = 0>
 		<tr>
@@ -183,7 +192,7 @@ font-weight:normal;
 	<% end %>
 	<!---------------------------------------- rutinas form ------------------------------------------------------------------------------> 
 <% form_for [@usuario, @usuario.rutinas.build] do |f| %>
-
+<h5>
 <div class="field">
     <%= f.label :nombre %><br />
     <%= f.text_field :nombre %>
@@ -211,13 +220,17 @@ font-weight:normal;
     <%= f.label :descripcion %><br />
     <%= f.text_area :descripcion %>
   </div>
+  </h5>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</td>
+</tr>
+</table>
 	<!---------------------------------------- fin ------------------------------------------------------------------------------> 
 	
 	
-	
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+</div>	
+
+
