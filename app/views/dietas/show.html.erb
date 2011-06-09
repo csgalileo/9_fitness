@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @dieta.nombre %>
+</p>
+
+<p>
+  <b>Dia:</b>
+  <%= @dieta.dia %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @dieta.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_dieta_path(@dieta) %> |
+<%= link_to 'Back', dietas_path %>

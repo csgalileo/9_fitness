@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  dia: MyString
+  musculo: MyString
+  descripcion: MyText
+
+two:
+  nombre: MyString
+  dia: MyString
+  musculo: MyString
+  descripcion: MyText

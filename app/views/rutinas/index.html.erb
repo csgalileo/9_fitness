@@ -1,0 +1,29 @@
+<h1>Listing rutinas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Dia</th>
+    <th>Musculo</th>
+    <th>Descripcion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rutinas.each do |rutina| %>
+  <tr>
+    <td><%= rutina.nombre %></td>
+    <td><%= rutina.dia %></td>
+    <td><%= rutina.musculo %></td>
+    <td><%= rutina.descripcion %></td>
+    <td><%= link_to 'Show', rutina %></td>
+    <td><%= link_to 'Edit', edit_rutina_path(rutina) %></td>
+    <td><%= link_to 'Destroy', rutina, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rutina', new_rutina_path %>

@@ -1,0 +1,223 @@
+<STYLE TYPE="text/css">
+ .loca { 
+color: #000000;
+margin-left: 30px ;
+border: 1px solid black;
+margin-right:30px;
+font-size:100%;
+margin-bottom: 20px;
+background-color: #ffffaa;
+border-radius: 10px;
+}
+
+h3{
+color: #33dd33;
+font-size:150%;
+font-style:normal;
+font-weight:normal;
+
+}
+h5{
+color: #dd3333;
+font-size:150%;
+font-style:normal;
+font-weight:normal;
+
+}
+h4{
+color: #777777;
+font-size:100%;
+font-style:normal;
+font-weight:normal;
+
+}
+</STYLE> 
+<p align = "right"><%= link_to 'Logout', '/logout'%>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Nombre:</b>
+  <%= @usuario.nombre %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @usuario.nickname %>
+</p>
+
+<p>
+  <b>Peso:</b>
+  <%= @usuario.peso %>
+</p>
+
+<p>
+  <b>Edad:</b>
+  <%= @usuario.edad %>
+</p>
+
+<p>
+  <b>Altura:</b>
+  <%= @usuario.altura %>
+</p>
+
+<table border = 0>
+<tr >
+<th width = "400">
+<h2> Posts</h2>
+</th>
+<th width = "400">
+<h2> dietas</h2>
+</th>
+</tr>
+<tr>
+<td>
+
+<!----------------------------------------posts ------------------------------------------------------------------------------> 
+<% @usuario.posts.each do |post| %>
+	<div class= "loca">
+	<table border = 0>
+		<tr>
+		<td><h3><%=link_to post.title, post %></h3></td>
+		<td><h4><%= time_ago_in_words post.created_at%> ago</h4> </td> 
+		</tr>
+	</table>	
+		<p><%= post.body %></p>
+		
+		<p align = "right"><%= link_to 'Destroy' , @post, :method => :delete, :confirm => "esta seguro?" %> </p>
+	</div>
+	<% end %>
+
+</td>
+<td>
+<!---------------------------------------- dietas ------------------------------------------------------------------------------> 
+<% @usuario.dietas.each do |dieta| %>
+	<div class= "loca">
+	<table border = 0>
+		<tr>
+		<td><h3><%=dieta.nombre %></h3></td>
+		<td><h4><%= dieta.dia %></h4> </td> 
+		</tr>
+	</table>	
+		<p><%= dieta.descripcion %></p>
+		
+		<p align = "right"><%= link_to 'Destroy' , @dieta, :method => :delete, :confirm => "esta seguro?" %> </p>
+	</div>
+	<% end %>
+
+</tr>
+<tr>
+<td>
+		<!---------------------------------------- posts form ------------------------------------------------------------------------------> 
+<% form_for [@usuario, @usuario.posts.build] do |f| %>
+
+<p>
+
+	<%= f.label :titulo, "titulo Del post" %><br />
+	<%= f.text_field :title %><br />
+	<%= f.label :body, "Nuevo Post" %><br />
+	<%= f.text_area :body %>
+</p>
+<p>
+	<%= f.submit "Agregar" %>
+</p>
+<% end %>
+
+
+<!---------------------------------------- fin ------------------------------------------------------------------------------> 
+</td>
+<td>
+	<!---------------------------------------- dietas form ------------------------------------------------------------------------------> 
+<% form_for [@usuario, @usuario.dietas.build] do |f| %>
+
+<div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  
+  <div class="field">
+	 <%= f.label :dia %><br />
+	<select id ="dieta_dia" name="dieta[dia]">
+		<OPTION VALUE="lunes">lunes</OPTION>
+		<OPTION VALUE="martes">martes</OPTION>
+		<OPTION VALUE="miercoles">miercoles</OPTION>
+		<OPTION VALUE="jueves">jueves</OPTION>
+		<OPTION VALUE="viernes">viernes</OPTION>
+		<OPTION VALUE="sabado">sabado</OPTION>
+		<OPTION VALUE="domingo">domingo</OPTION>
+			
+		
+	</select>
+	</div>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+	<!---------------------------------------- fin ------------------------------------------------------------------------------> 
+	</td>
+	</tr>
+	</table>
+	
+	<hr>
+	<h2> Rutinas</h2>
+<!---------------------------------------- rutinas ------------------------------------------------------------------------------>	
+	<% @usuario.rutinas.each do |rutina| %>
+	<div class= "loca">
+	<table border = 0>
+		<tr>
+		<td><h5><%=rutina.nombre %></h5></td>
+		<td><h4><%= rutina.dia %>
+			<%= rutina.musculo%></h4> </td> 
+		</tr>
+	</table>	
+		<p><%= rutina.descripcion %></p>
+		
+		<p align = "right"><%= link_to 'Destroy' , @rutina, :method => :delete, :confirm => "esta seguro?" %> </p>
+	</div>
+	<% end %>
+	<!---------------------------------------- rutinas form ------------------------------------------------------------------------------> 
+<% form_for [@usuario, @usuario.rutinas.build] do |f| %>
+
+<div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :musculo %><br />
+    <%= f.text_field :musculo %>
+  </div>
+  <div class="field">
+	 <%= f.label :dia %><br />
+	<select id ="rutina_dia" name="rutina[dia]">
+		<OPTION VALUE="lunes">lunes</OPTION>
+		<OPTION VALUE="martes">martes</OPTION>
+		<OPTION VALUE="miercoles">miercoles</OPTION>
+		<OPTION VALUE="jueves">jueves</OPTION>
+		<OPTION VALUE="viernes">viernes</OPTION>
+		<OPTION VALUE="sabado">sabado</OPTION>
+		<OPTION VALUE="domingo">domingo</OPTION>
+			
+		
+	</select>
+	</div>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+	<!---------------------------------------- fin ------------------------------------------------------------------------------> 
+	
+	
+	
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

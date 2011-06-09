@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @nuevo_usuario.nombre %>
+</p>
+
+<p>
+  <b>Nickname:</b>
+  <%= @nuevo_usuario.nickname %>
+</p>
+
+<p>
+  <b>Peso:</b>
+  <%= @nuevo_usuario.peso %>
+</p>
+
+<p>
+  <b>Edad:</b>
+  <%= @nuevo_usuario.edad %>
+</p>
+
+<p>
+  <b>Altura:</b>
+  <%= @nuevo_usuario.altura %>
+</p>
+
+
+<%= link_to 'Edit', edit_nuevo_usuario_path(@nuevo_usuario) %> |
+<%= link_to 'Back', nuevo_usuarios_path %>

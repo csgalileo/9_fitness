@@ -1,0 +1,23 @@
+<h1>Listing algos</h1>
+
+<table>
+  <tr>
+    <th>Algo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @algos.each do |algo| %>
+  <tr>
+    <td><%= algo.algo %></td>
+    <td><%= link_to 'Show', algo %></td>
+    <td><%= link_to 'Edit', edit_algo_path(algo) %></td>
+    <td><%= link_to 'Destroy', algo, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Algo', new_algo_path %>

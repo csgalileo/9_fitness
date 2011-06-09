@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @rutina.nombre %>
+</p>
+
+<p>
+  <b>Dia:</b>
+  <%= @rutina.dia %>
+</p>
+
+<p>
+  <b>Musculo:</b>
+  <%= @rutina.musculo %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @rutina.descripcion %>
+</p>
+
+
+<%= link_to 'Edit', edit_rutina_path(@rutina) %> |
+<%= link_to 'Back', rutinas_path %>

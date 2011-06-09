@@ -1,0 +1,21 @@
+<%= form_for(@algo) do |f| %>
+  <% if @algo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@algo.errors.count, "error") %> prohibited this algo from being saved:</h2>
+
+      <ul>
+      <% @algo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :algo %><br />
+    <%= f.text_field :algo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

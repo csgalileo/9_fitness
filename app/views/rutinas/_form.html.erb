@@ -1,0 +1,33 @@
+<%= form_for(@rutina) do |f| %>
+  <% if @rutina.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rutina.errors.count, "error") %> prohibited this rutina from being saved:</h2>
+
+      <ul>
+      <% @rutina.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :dia %><br />
+    <%= f.text_field :dia %>
+  </div>
+  <div class="field">
+    <%= f.label :musculo %><br />
+    <%= f.text_field :musculo %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

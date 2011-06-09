@@ -1,0 +1,48 @@
+<STYLE TYPE="text/css">
+ .loca { 
+color: #000000;
+margin-left: 30px ;
+border-top: solid black;
+border-top-width: 2px;
+border-right: solid black;
+margin-right:100px;
+}
+h3{
+color: #555555;
+font-size:100%;
+font-style:normal;
+font-weight:normal;
+background-color: #ddddaa;
+}
+</STYLE> 
+
+<%= render :partial => @post %>
+<p>
+	<%= link_to 'Edit' , edit_post_path(@post) %>|
+	<%= link_to 'Destroy' , @post, :method => :delete, :confirm => "esta seguro?" %> |
+	<%= link_to 'Ver todos', posts_path %>
+</p>
+<h2> Comentarios </h2>
+
+<% @post.comments.each do |comment| %>
+	<div class= "loca">
+	
+		<h3><%= time_ago_in_words comment.created_at%> ago </h3> 
+			
+		<p><%= comment.body %></p>
+	</div>
+	<% end %>
+	<% newCom = Comment.new %>
+
+<% form_for [@post, @post.comments.build] do |f| %>
+
+<p>
+<hr>
+	<%= f.label :body, "Nuevo comentario" %><br />
+	<%= f.text_area :body %>
+</p>
+<p>
+	<%= f.submit "Agregar" %>
+</p>
+<% end %>
+<%= link_to 'Regresar', :back %>

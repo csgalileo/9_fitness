@@ -1,0 +1,42 @@
+<%= form_for(@dieta) do |f| %>
+  <% if @dieta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dieta.errors.count, "error") %> prohibited this dieta from being saved:</h2>
+
+      <ul>
+      <% @dieta.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  
+  <div class="field">
+	 <%= f.label :dieta %><br />
+	<select id ="dieta_dia" name="dieta[dia]">
+		<OPTION VALUE="lunes">lunes</OPTION>
+		<OPTION VALUE="martes">martes</OPTION>
+		<OPTION VALUE="miercoles">miercoles</OPTION>
+		<OPTION VALUE="jueves">jueves</OPTION>
+		<OPTION VALUE="viernes">viernes</OPTION>
+		<OPTION VALUE="sabado">sabado</OPTION>
+		<OPTION VALUE="domingo">domingo</OPTION>
+			
+		
+	</select>
+	</div>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
